@@ -1,4 +1,6 @@
 ;;; Albaro Pereyra's default emacs config
+;; before deploying run: touch ~/.emacs.d/.emcas-custom.el
+
 (require 'package)
 ;;; Add repositories
 (add-to-list 'package-archives
@@ -113,8 +115,6 @@
 ;;; Find file upgrade
 (ffap-bindings); do default key bindings on C-x, C-f
 
-(setq interprogram-cut-function 'paste-to-osx)
-(setq interprogram-paste-function 'copy-from-osx)
 ;;remove menu items
 (setq menu-bar-mode -1)
 
@@ -157,3 +157,6 @@
 ;       (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
 ;          (process-send-string proc text)
 ;          (process-send-eof proc))))
+;
+; (setq interprogram-cut-function 'paste-to-osx)
+; (setq interprogram-paste-function 'copy-from-osx)
