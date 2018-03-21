@@ -116,7 +116,7 @@
 (ffap-bindings); do default key bindings on C-x, C-f
 
 ;;remove menu items
-(setq menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;;; Fix M-x shell by replacing zsh with sh
 ;;; M-x eshell seems to work better with emacs
