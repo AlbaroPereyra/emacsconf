@@ -1,5 +1,5 @@
 ;;; Albaro Pereyra's default emacs config
-;; before deploying run: touch ~/.emacs.d/.emcas-custom.el
+;; before deploying run: touch ~/.emacs.d/.emacs-custom.el
 
 (require 'package)
 ;;; Add repositories
