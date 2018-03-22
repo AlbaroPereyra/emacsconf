@@ -118,6 +118,9 @@
 ;;remove menu items
 (menu-bar-mode -1)
 
+;;; Make scripts executable on save
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
 ;;; Fix M-x shell by replacing zsh with sh
 ;;; M-x eshell seems to work better with emacs
 (setq explicit-shell-file-name "/bin/sh")
