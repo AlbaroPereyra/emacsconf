@@ -94,7 +94,9 @@
 (global-cwarn-mode t)
 
 ;;; Set error flags on the Fly for C++ and HTML etc.
-(flymake-mode t)
+;; The following is causing errors and the reported fix causes even more errors
+;; Disabling it for now 10/30/2018
+;(flymake-mode t)
 
 ;;; Set on the fly spell checke
 ;; Disabled for logs
