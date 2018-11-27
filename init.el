@@ -25,10 +25,10 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;;; Save emacs session, hopefully this will highlight the manual pages I have visited
+;;; Save emacs session
 (desktop-save-mode 1)
 ;; Set the number of buffers to restore eagerly, the rest will be restored when emacs is idle
-(setq desktop-restore-eager 4)
+(setq desktop-restore-eager 3)
 ;;;more on cocurency
 (savehist-mode)
 
@@ -67,6 +67,15 @@
 (setq c-default-style
            '((java-mode . "k&r")
              (other . "k&r")))
+
+;;; enable abbreviation for jdee
+(setq jdee-enable-abbrev-mode t)
+
+;;; bind tab to jdee-complete in jdee mode
+(add-hook 'jdee-mode-hook
+       (lambda ()
+         (define-key jdee-mode-map "\t"
+                     'jdee-complete)))
 
 ;;; Print current function in mini buffer
 (setq which-func-modes t)
