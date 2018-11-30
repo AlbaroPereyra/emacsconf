@@ -1,12 +1,12 @@
 ;;; Albaro Pereyra's default emacs config
-;; before deploying run: touch ~/.emacs.d/.emacs-custom.el
+;;; Before deploying run: touch ~/.emacs.d/.emacs-custom.el
 
 (require 'package)
 ;;; Add repositories
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
-;; Initialize packages before referencing them
+;;; Initialize packages before referencing them
 (package-initialize)
 
 ;;; Make settings done though Emacs persistant on a different file.
@@ -27,9 +27,9 @@
 
 ;;; Save emacs session
 (desktop-save-mode 1)
-;; Set the number of buffers to restore eagerly, the rest will be restored when emacs is idle
+;;; Set the number of buffers to restore eagerly, the rest will be restored when emacs is idle
 (setq desktop-restore-eager 3)
-;;;more on cocurency
+;;; more settings on cocurency
 (savehist-mode)
 
 ;;; Set default theme
@@ -47,8 +47,8 @@
 (filesets-init)
 
 ;;; Set tabs to spaces
-;; Convert tabs to spaces, indent-tabs-mode
-;; I may have to manually add every languague such as js and sgml
+;;; Convert tabs to spaces, indent-tabs-mode
+;;; I may have to manually add every languague such as js and sgml
 (setq-default
  indent-tabs-mode nil
  js-indent-level 2
@@ -59,11 +59,11 @@
  sh-basic-offset 2
  sh-indentation 2)
 
-;;; Set default style
-;;; k&r = if (true) {
-;;;         action.do();
-;;;       }
-;;; For the sake of clarity and fine tunning I left in other
+;;; Set default style to k&r:
+;;; if (true) {
+;;;   action.do();
+;;; }
+;;; For the sake of clarity and fine tunning I left in other default styles
 (setq c-default-style
            '((java-mode . "k&r")
              (other . "k&r")))
@@ -84,7 +84,7 @@
 (electric-pair-mode t)
 
 ;;; Set to parse local functions, in C, Java, HTML, etc.
-;; TODO read more on the simantec mode
+;;; TODO read more on the simantec mode
 (semantic-mode t)
 
 ;;; Set automatic new lines in some languagues after a ';'
@@ -103,12 +103,12 @@
 (global-cwarn-mode t)
 
 ;;; Set error flags on the Fly for C++ and HTML etc.
-;; The following is causing errors and the reported fix causes even more errors
+;;; The following is causing errors and the reported fix causes even more errors
 ;; Disabling it for now 10/30/2018
 ;(flymake-mode t)
 
-;;; Set on the fly spell checke
-;; Disabled for logs
+;;; Set on the fly spell checker
+;;; Disabled for logs
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
@@ -132,7 +132,7 @@
 ;;; Make scripts executable on save
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
-;;; Fix M-x shell by replacing zsh with sh
+;;; Fix 'M-x shell' by replacing the default shell(zsh) with sh
 ;;; M-x eshell seems to work better with emacs
 (setq explicit-shell-file-name "/bin/sh")
 (setq shell-file-name "sh")
