@@ -26,22 +26,22 @@
     (package-install package)))
 
 ;;; Save emacs session
-(desktop-save-mode 1)
+(desktop-save-mode t)
 ;;; Set the number of buffers to restore eagerly, the rest will be restored when emacs is idle
 (setq desktop-restore-eager 3)
 ;;; more settings on cocurency
 (savehist-mode)
 
 ;;; Set default theme
-(add-hook 'after-init-hook 
-	  (lambda () (load-theme 'zenburn t)))
+(add-hook 'after-init-hook
+  (lambda () (load-theme 'zenburn t)))
 
 ;;; Enable version control
 (setq version-control t)
 
 ;;; Add line numbers to buffer
 (add-hook 'prog-mode-hook 'linum-mode)
-(setq linum-format "%4d \u2502 ")
+  (setq linum-format "%4d \u2502 ")
 
 ;;; Add file sets menu
 (filesets-init)
@@ -50,14 +50,14 @@
 ;;; Convert tabs to spaces, indent-tabs-mode
 ;;; I may have to manually add every languague such as js and sgml
 (setq-default
- indent-tabs-mode nil
- js-indent-level 2
- standard-indent 2
- tab-width 2
- sgml-basic-offset 2
- c-basic-offset 2
- sh-basic-offset 2
- sh-indentation 2)
+  indent-tabs-mode nil
+  js-indent-level 2
+  standard-indent 2
+  tab-width 2
+  sgml-basic-offset 2
+  c-basic-offset 2
+  sh-basic-offset 2
+  sh-indentation 2)
 
 ;;; Set default style to k&r:
 ;;; if (true) {
@@ -65,30 +65,30 @@
 ;;; }
 ;;; For the sake of clarity and fine tunning I left in other default styles
 (setq c-default-style
-           '((java-mode . "k&r")
-             (other . "k&r")))
+  '((java-mode . "k&r")
+    (other . "k&r")))
 
 ;;; enable abbreviation for jdee
 (setq jdee-enable-abbrev-mode t)
 
 ;;; bind tab to jdee-complete in jdee mode
 (add-hook 'jdee-mode-hook
-       (lambda ()
-         (define-key jdee-mode-map "\t"
-                     'jdee-complete)))
+  (lambda ()
+    (define-key jdee-mode-map "\t"
+      'jdee-complete)))
 
 ;;; Print current function in mini buffer
 (setq which-func-modes t)
 
 ;;; Set automatic matching braces or brackets.
-(electric-pair-mode t)
+(setq electric-pair-mode t)
 
 ;;; Set to parse local functions, in C, Java, HTML, etc.
 ;;; TODO read more on the simantec mode
-(semantic-mode t)
+(setq semantic-mode t)
 
 ;;; Set automatic new lines in some languagues after a ';'
-(electric-layout-mode t)
+(setq electric-layout-mode t)
 
 ;;; Print all man pages
 (setq Man-switches "-a")
@@ -100,12 +100,10 @@
 (add-hook 'c-initialization-hook 'my-bind-clb)
 
 ;;; Print warning for suspecious C code
-(global-cwarn-mode t)
+(setq global-cwarn-mode t)
 
 ;;; Set error flags on the Fly for C++ and HTML etc.
-;;; The following is causing errors and the reported fix causes even more errors
-;; Disabling it for now 10/30/2018
-;(flymake-mode t)
+(setq flymake-mode t)
 
 ;;; Set on the fly spell checker
 ;;; Disabled for logs
@@ -153,8 +151,8 @@
 (global-set-key "\C-c\C-zu" 'browse-url)
 (global-set-key "\C-c\C-zv" 'browse-url-of-file)
 (add-hook 'dired-mode-hook
-	  (lambda ()
-	    (local-set-key "\C-c\C-zf" 'browse-url-of-dired-file)))
+  (lambda ()
+    (local-set-key "\C-c\C-zf" 'browse-url-of-dired-file)))
 
 ;;; Set email message sending method
 ; (setq message-send-mail-function 'sendmail-send-it)
@@ -165,12 +163,12 @@
 ;;; MAC OS settings ;;;
 ;;Allow Killing and Yanking on MacOS clipboard
 ; (defun copy-from-osx ()
-;    (shell-command-to-string "pbpaste"))
+;   (shell-command-to-string "pbpaste"))
 ; (defun paste-to-osx (text &optional push)
-;    (let ((process-connection-type nil))
-;       (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;          (process-send-string proc text)
-;          (process-send-eof proc))))
+;   (let ((process-connection-type nil))
+;     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+;       (process-send-string proc text)
+;       (process-send-eof proc))))
 ;
 ; (setq interprogram-cut-function 'paste-to-osx)
 ; (setq interprogram-paste-function 'copy-from-osx)
