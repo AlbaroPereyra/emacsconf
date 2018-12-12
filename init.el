@@ -118,6 +118,11 @@
 ;;; Set calendar week to start on Monday
 (setq calendar-week-start-day 1)
 
+;;; Set ERC IRC client settings
+'(erc-modules
+   (quote
+    (autojoin button completion fill irccontrols list match menu move-to-prompt netsplit networks noncommands notifications readonly ring services sound stamp spelling track)))
+ 
 ;;; Set appointment notifications
 (setq appt-active 1)
 
