@@ -15,7 +15,7 @@
 
 ;;; Install required pacakages
 ; Create a list of packages to install if not already installed
-(setq package-list '(zenburn-theme magit jdee ensime xclip))
+(setq package-list '(zenburn-theme magit jdee ensime xclip php-mode))
 ; fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -37,7 +37,14 @@
   (lambda () (load-theme 'zenburn t)))
 
 ;;; Enable version control
-(setq version-control t)
+(setq
+ backup-by-copying t      ; don't clobber symlinks
+ backup-directory-alist
+ '(("." . "~/.saves/"))    ; don't litter my fs tree
+ delete-old-versions t
+ kept-new-versions 6
+ kept-old-versions 2
+ version-control t)       ; use versioned backups
 
 ;;; Add line numbers to buffer
 (add-hook 'prog-mode-hook 'linum-mode)
@@ -57,7 +64,8 @@
   sgml-basic-offset 2
   c-basic-offset 2
   sh-basic-offset 2
-  sh-indentation 2)
+  sh-indentation 2
+  php-mode-force-pear nil)
 
 ;;; Set default style to k&r:
 ;;; if (true) {
@@ -66,7 +74,7 @@
 ;;; For the sake of clarity and fine tunning I left in other default styles
 (setq c-default-style
   '((java-mode . "k&r")
-    (other . "k&r")))
+    (php-mode . "k&r")))
 
 ;;; enable abbreviation for jdee
 (setq jdee-enable-abbrev-mode t)
