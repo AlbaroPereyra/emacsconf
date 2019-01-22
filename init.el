@@ -15,7 +15,7 @@
 
 ;;; Install required pacakages
 ; Create a list of packages to install if not already installed
-(setq package-list '(zenburn-theme magit jdee ensime xclip php-mode))
+(setq package-list '(zenburn-theme magit jdee ensime xclip php-mode sbt-mode hydra))
 ; fetch the list of packages available 
 (unless package-archive-contents
   (package-refresh-contents))
@@ -84,6 +84,16 @@
   (lambda ()
     (define-key jdee-mode-map "\t"
       'jdee-complete)))
+;;; return closes the open brace instead of new line
+;;; jdee-electric-return-p ; looks like this var does not exist.
+(setq jdee-electric-return-mode t)
+
+;;; Scala settings
+(add-hook 'sbt-mode-hook (lambda ()
+  o(add-hook 'before-save-hook 'sbt-hydra:check-modified-buffers)))
+
+;; allow interactive templates
+(setq tempo-interactive t)
 
 ;;; Print current function in mini buffer
 (setq which-func-modes t)
@@ -150,6 +160,10 @@
 (setq explicit-sh-args '("-"))
 (setenv "SHELL" shell-file-name)
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+;;; Java Jdee settings
+'(jdee-electric-return-p t)
+'(jdee-server-dir "~/myJars")
 
 ;;; Magit recomended key bindings
 (global-set-key (kbd "C-x g") 'magit-status)
