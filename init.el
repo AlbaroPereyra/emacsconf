@@ -161,9 +161,11 @@
 (setenv "SHELL" shell-file-name)
 (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
+;;; Per the following guide:
+;https://github.com/jdee-emacs/jdee-server
 ;;; Java Jdee settings
-'(jdee-electric-return-p t)
-'(jdee-server-dir "~/myJars")
+;'(jdee-electric-return-p t)
+;'(jdee-server-dir "~/myJars")
 
 ;;; Magit recomended key bindings
 (global-set-key (kbd "C-x g") 'magit-status)
