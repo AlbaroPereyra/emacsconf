@@ -57,7 +57,7 @@
 ;;; Set tabs to spaces
 ;;; Convert tabs to spaces, indent-tabs-mode
 ;;; I may have to manually add every languague such as js and sgml
-(setq-default
+(setq
   indent-tabs-mode nil
   js-indent-level 2
   standard-indent 2
