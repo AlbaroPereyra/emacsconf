@@ -31,6 +31,7 @@
 (setq desktop-restore-eager 3)
 ;;; more settings on cocurency
 (savehist-mode)
+(save-place-mode 1)
 
 ;;; Set default theme
 (add-hook 'after-init-hook
