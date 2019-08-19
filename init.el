@@ -202,3 +202,5 @@
 ;
 ; (setq interprogram-cut-function 'paste-to-osx)
 ; (setq interprogram-paste-function 'copy-from-osx)
+;;; Windows settings
+;(normal-erase-is-backspace-mode 1)
